@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app_server:
+    image: php:7.2-apache
+    build:
+      context: .
+      args:
+        xdebug_remote_host: ${WSLIP}
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - 80:80
+      - 9004:9004
